@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "NoCalendar",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxW7vqQULjVlUqUfTwCQA54rysjP7+Ov/mJrYOFEPk1xBnHoR6akx4m8TuIX5JVXexB6+BRY4C02Hzjh4djF14hEQuzUR6TR9YW0BGqYOLhroJtvQEzFgK8AWBP6J/R62jWXgXAdBevftt9FpTQP1Z5kQI0/QXHaJHkEuvbMhtJSPrp1Xh8u1UK1i0D7tKXxvLSKHgT79Sorc7QJeh0q+RPV72aLWaamU88pnWYnugFf16lySPWhGj31WbWIxTZCdNJk5vva+V9sYDJxthISdkuuzCd8WSusUAnAcBFNwO5q4f5JyGJG+CJm30MORptAeoMoWQ4aIaiEaZwJNs2rq6QIDAQAB",
+  "description": "NoCalendar MVP",
+  "options_page": "options.html",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-34.png"
+  },
+  "icons": {
+    "128": "icon-128.png",
+    "34": "icon-34.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
+      "matches": []
+    }
+  ],
+  "permissions": ["identity", "tabs"],
+  "oauth2": {
+    "client_id": "179851170852-he88kn81t8cj6ngc0o6elsplnlejmjtp.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar",
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/calendar.events.readonly",
+      "https://www.googleapis.com/auth/calendar.readonly",
+      "https://www.googleapis.com/auth/calendar.settings.readonly"
+    ]
+  }
+}
